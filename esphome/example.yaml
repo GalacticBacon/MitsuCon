@@ -1,0 +1,14 @@
+# Example configuration entry
+esphome:
+  includes:
+    - my_climate.h
+
+climate:
+- platform: custom
+  lambda: |-
+    auto my_custom_climate = new MyCustomClimate();
+    App.register_component(my_custom_climate);
+    return {my_custom_climate};
+
+  climates:
+    - name: "My Custom Climate"
